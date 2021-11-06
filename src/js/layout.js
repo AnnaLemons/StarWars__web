@@ -4,7 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
 import { Species } from "./views/species.jsx";
-import { Single } from "./views/single";
+import { Speciesid } from "./views/speciesid.jsx";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -26,8 +26,8 @@ const Layout = () => {
 						<Route path="/species" element={<Species />}>
 							<Species />
 						</Route>
-						<Route path="/species/:id" element={<Speciesid />}>
-							<Species />
+						<Route path="/speciesid" element={<Speciesid />}>
+							<Speciesid />
 						</Route>
 					</Routes>
 					<Footer />

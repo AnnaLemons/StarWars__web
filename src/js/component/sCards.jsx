@@ -2,6 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const SCards = props => {
 	return (
@@ -20,7 +21,9 @@ const SCards = props => {
 						-Heigth: {props.element.average_height}
 						-Lifespan: {props.element.average_lifespan}
 					</Card.Text>
-					<Button variant="primary">Go somewhere</Button>
+					<Link to="/speciesid">
+						<Button variant="primary">Go somewhere</Button>
+					</Link>
 				</Card.Body>
 			</Card>
 		</div>
