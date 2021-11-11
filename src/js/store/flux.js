@@ -9,13 +9,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favourites: []
 		},
 		actions: {
-			getCharacters: () => {
-				fetch(getStore().urlCharacters)
+			getStarships: () => {
+				fetch(getStore().baseUrl.concat("starships"))
 					.then(response => {
 						if (response.ok) {
 							return response.json();
 						}
-						localStorage.setItem("characters", JSON.stringify(getStore().characters));
+            throw new Error("FAIL DOWNLOADING STARSHIPS");
+					})
+					.then(responseAsJSON => {
+						console.log("JSON", responseAsJSON);
+						//setStore({ startships: responseAsJson });
+					})
+					.catch(error => {
+						console.log("AUXILIO", error);
+					});
+      },
+      
+      getCharacters: () => {
+				fetch(getStore().urlCharacters)
+					.then(response => {
+						if (response.ok) {
+							return response.json();
+            }
+            localStorage.setItem("characters", JSON.stringify(getStore().characters));
 						localStorage.setItem("characters_info", JSON.stringify(getStore().charactersDetails));
 
 						throw new Error("ERROR DOWNLOADING");

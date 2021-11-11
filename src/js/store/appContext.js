@@ -22,11 +22,9 @@ const injectContext = PassedComponent => {
 			state.actions.getCharacters();
 			state.actions.getCharactersDetails();
 			state.actions.addFavourite();
+			state.actions.getStarships();
 		}, []);
 
-		// The initial value for the context is not null anymore, but the current state of this component,
-		// the context will now have a getStore, getActions and setStore functions available, because they were declared
-		// on the state of this component
 		return (
 			<Context.Provider value={state}>
 				<PassedComponent {...props} />
