@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "../../styles/home.scss";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>PAKITO TIENE PITO</h1>
-	</div>
-);
+export const Home = () => {
+	return (
+		<div className="text-center mt-5">
+			<h1>ESTA ES LA HOME</h1>
+		</div>
+	);
+};

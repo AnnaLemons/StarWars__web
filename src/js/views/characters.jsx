@@ -1,13 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
-import Card from "../component/card.jsx";
+import CharacterCard from "../component/characterCard.jsx";
 
 export const Characters = () => {
 	const { store, actions } = useContext(Context);
-	console.log(store.characters);
-	return (
-		<div>
-			<Card />
-		</div>
+	const [characterList, setCharacterList] = useState([]);
+
+	useEffect(
+		() => {
+			if (store.characters.length != 0) {
+				setCharacterList(
+					store.characters.map((character, index) => {
+						return <CharacterCard key={index.toString()} uid={character.uid} element={character} />;
+					})
+				);
+			}
+		},
+		[store.characters]
 	);
+
+	return <div className="characterCards">{characterList}</div>;
 };
