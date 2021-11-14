@@ -71,6 +71,7 @@
 		"react-dom": "^16.8.4",
 		"react-polyfills": "0.0.1",
 		"react-router": "^6.0.0",
+
 		"react-router-dom": "^6.0.0",
 		"run": "^1.4.0",
 		"start": "^5.1.0"
