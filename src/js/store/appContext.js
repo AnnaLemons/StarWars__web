@@ -19,10 +19,11 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
+			state.actions.getSpecies();
+			state.actions.getSpeciesDetails();
 			state.actions.getCharacters();
 			state.actions.getCharactersDetails();
 			state.actions.addFavourite();
-			state.actions.getStarships();
 		}, []);
 
 		return (
