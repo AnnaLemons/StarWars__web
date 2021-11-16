@@ -4,15 +4,18 @@ import { Planets } from "./views/planets.jsx";
 import { PlanetsId } from "./views/PlanetsId.jsx";
 
 import { Home } from "./views/home";
+
+import { CharactersId } from "./views/charactersId.jsx";
+import { Characters } from "./views/characters.jsx";
+
+import { Species } from "./views/species.jsx";
+import SpeciesId from "./views/speciesid.jsx";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
-//create your first component
 const Layout = () => {
-	//the basename is used when your project is published in a subdirectory and not in the root of the domain
-	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
 
 	return (
@@ -23,6 +26,15 @@ const Layout = () => {
 					<Route path="/" element={<Home />} />
 					<Route path="/planets" element={<Planets />} />
 					<Route path="/planets/:uid" element={<PlanetsId />} />
+
+					<Route path="/species" element={<Species />}>
+						<Species />
+					</Route>
+					<Route path="/speciesid/:uid" element={<SpeciesId />}>
+						<SpeciesId />
+					</Route>
+					<Route path="/characters" element={<Characters />} />
+					<Route path="/characters/:uid" element={<CharactersId />} />
 					<Route>
 						<h1>Not found!</h1>
 					</Route>

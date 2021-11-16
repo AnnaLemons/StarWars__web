@@ -8,13 +8,19 @@ export const Navbar = () => {
 	console.log("favorito", store.favourites);
 
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
+		<nav className="navbar">
 			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
+				<span className="navbar-brand">Home</span>
 			</Link>
+
 			<div className="ml-auto">
-				<Link to="/planets">
-					<button className="btn btn-primary">Check the Context in action</button>
+				<Link to="/species">
+					<button className="btn btn-primary">Especies</button>
+				</Link>
+			</div>
+			<div className="charactersLink">
+				<Link to="/characters">
+					<button className="btn btn-primary">Characters</button>
 				</Link>
 				<div>
 					<Dropdown>
