@@ -1,74 +1,66 @@
 const getState = ({ getStore, getActions, setStore }) => {
+	//getStore: para leer el store
+	//setstore: para modificar/escribir el store
+	//getactions: para llamar a las acciones
 	return {
 		store: {
-			baseUrl: "https://www.swapi.tech/api/"
+			baseUrl: "https://www.swapi.tech/api/",
+			urlPlanets: "https://www.swapi.tech/api/planets/",
+			urlPlanetsDetails: "https://www.swapi.tech/api/planets/",
+			planets: [],
+			planetDetails: [],
+			favourites: []
 		},
+
 		actions: {
 			getPlanets: () => {
-				console.log("link concat", getStore().baseUrl.concat("planets"));
-				fetch(getStore().baseUrl.concat("planets"))
+				fetch(getStore().urlPlanets)
 					.then(response => {
 						if (response.ok) {
 							return response.json();
 						}
-						throw new Error("¿esquiusmi?");
+						throw new Error("primer fetch que no funciona");
 					})
 					.then(responseAsJSON => {
-						console.log("tradusion", responseAsJSON);
+						console.log(responseAsJSON);
+						setStore({ planets: [...getStore().planets, ...responseAsJSON.results] });
+						// esto se está llamando todo el rato (por la recursividad, que se llama así misma)
+						setStore({ urlPlanets: responseAsJSON.next });
+						// if (responseAsJSON.next) {
+						// 	getActions().getPlanets();
+						// }
 					})
 
 					.catch(error => {
-						console.log("auxilio", error);
+						console.log("auxilio1", error.message);
 					});
+			},
+			getPlanetsDetails: uid => {
+				fetch(getStore().urlPlanetsDetails.concat(uid))
+					.then(response => {
+						if (response.ok) {
+							return response.json();
+						}
+						throw new Error("segundo fetch que no funciona?");
+					})
+					.then(responseAsJSON => {
+						setStore({ planetDetails: [responseAsJSON.result.properties] });
+						console.log("INFO DETALLE PLANETAS EN FLUX", responseAsJSON.result);
+					})
+
+					.catch(error => {
+						console.log("auxilio2", error.message);
+					});
+			},
+
+			//va una coma después porque es un objeto
+			addFavourite: itemFavourite => {
+				console.log(getStore().favourites);
+				//en favoritos hacemos un spread para conseguir la info de favoritos
+				setStore({ favourites: [...getStore().favourites, itemFavourite] });
 			}
 		}
 	};
 };
 
 export default getState;
-
-// const getState = ({ getStore, getActions, setStore }) => {
-// 	return {
-// 		store: {
-// 			demo: [
-// 				{
-// 					title: "FIRST",
-// 					background: "white",
-// 					initial: "white"
-// 				},
-// 				{
-// 					title: "SECOND",
-// 					background: "white",
-// 					initial: "white"
-// 				}
-// 			]
-// 		},
-// 		actions: {
-// 			// Use getActions to call a function within a fuction
-// 			exampleFunction: () => {
-// 				getActions().changeColor(0, "green");
-// 			},
-// 			loadSomeData: () => {
-// 				/**
-// 					fetch().then().then(data => setStore({ "foo": data.bar }))
-// 				*/
-// 			},
-// 			changeColor: (index, color) => {
-// 				//get the store
-// 				const store = getStore();
-
-// 				//we have to loop the entire demo array to look for the respective index
-// 				//and change its color
-// 				const demo = store.demo.map((elm, i) => {
-// 					if (i === index) elm.background = color;
-// 					return elm;
-// 				});
-
-// 				//reset the global store
-// 				setStore({ demo: demo });
-// 			}
-// 		}
-// 	};
-// };
-
-// export default getState;

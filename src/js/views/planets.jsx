@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
+import CardsPlanets from "../component/cardsPlanets.jsx";
 
 export const Planets = () => {
-	return (
-		<div>
-			<h1>Necesitas un ccomponente</h1>
-		</div>
-	);
-};
+	const { store, actions } = useContext(Context);
+	const [planetList, setPlanetList] = useState([]);
 
-console.log("Planets", Planets);
+	useEffect(
+		() => {
+			if (store.planets.length != 0) {
+				setPlanetList(
+					store.planets.map(planet => {
+						return <CardsPlanets key={planet.uid} name={planet.name} url={planet.url} element={planet} />;
+					})
+				);
+				console.log("variable PlanetList", planetList);
+			}
+		},
+		[store.planets]
+	);
+
+	return <ul>{planetList}</ul>;
+};

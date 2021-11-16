@@ -23,6 +23,7 @@ const injectContext = PassedComponent => {
 
 		useEffect(() => {
 			state.actions.getPlanets();
+			state.actions.getPlanetsDetails();
 		}, []);
 
 		return (

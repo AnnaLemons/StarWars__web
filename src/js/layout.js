@@ -1,10 +1,9 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Planets } from "./views/planets.jsx";
+import { PlanetsId } from "./views/PlanetsId.jsx";
 
 import { Home } from "./views/home";
-import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -19,24 +18,16 @@ const Layout = () => {
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
-				<ScrollToTop>
-					<Navbar />
-					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/planets">
-							<Planets />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
-						</Route>
-						<Route>
-							<h1>Not found!</h1>
-						</Route>
-					</Switch>
-					<Footer />
-				</ScrollToTop>
+				<Navbar />
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/planets" element={<Planets />} />
+					<Route path="/planets/:uid" element={<PlanetsId />} />
+					<Route>
+						<h1>Not found!</h1>
+					</Route>
+				</Routes>
+				<Footer />
 			</BrowserRouter>
 		</div>
 	);
