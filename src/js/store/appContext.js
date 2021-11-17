@@ -23,6 +23,8 @@ const injectContext = PassedComponent => {
 
 		useEffect(() => {
 			state.actions.getStarships();
+			state.actions.getStarshipsDetails();
+			state.actions.addFavourite();
 		}, []);
 
 		return (
@@ -31,6 +33,7 @@ const injectContext = PassedComponent => {
 			</Context.Provider>
 		);
 	};
+
 	return StoreWrapper;
 };
 
