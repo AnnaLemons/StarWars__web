@@ -4,12 +4,13 @@ import "../../styles/home.scss";
 export const Home = () => {
 	return (
 		<div className="body">
+			<audio src="https://www.bensound.com/bensound-music/bensound-newdawn.mp3" autoPlay />
 			<div id="starwars" className="animate">
 				<p className="intro">A long time ago, in a galaxy far, far away...</p>
 				<img src="http://vignette1.wikia.nocookie.net/disney/images/8/8b/Starwars-logo.png" className="logo" />
 				<div id="reel">
 					<div className="content">
-						<h1>Episode IV</h1>
+						<h1>Full Time VI</h1>
 						<h2>A NEW HOPE</h2>
 						<p>
 							It is a period of coding war. Rebel 4Geeks coders, striking from a hidden terminal, have won
@@ -17,23 +18,17 @@ export const Home = () => {
 						</p>
 
 						<p>
-							During the battle, Rebel spies managed to steal repositories from , the DEATH STAR, an
-							armored space station with enough power to destroy an entire planet.
+							During the battle, Rebel spies managed to steal repositories from , the GITHUB, an armored
+							their proyects with enough power to destroy an entire console error station.
 						</p>
 
 						<p>
-							Pursued by the Empire sinister agents, Princess Leia races home aboard her starship,
-							custodian of the stolen plans that can save her people and restore freedom to the galaxy....
+							Pursued by the Python sinister language, Princess Jimena races home aboard her starship,
+							custodian of the corrected codes that can save her students and restore freedom to the
+							galaxy....
 						</p>
 					</div>
 				</div>
-
-				<audio
-					src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/244725/MainTitle.ogg"
-					onloadeddata="var audioPlayer = this; setTimeout(function() { audioPlayer.play(); }, 4500)"
-				/>
-
-				<button>Restart</button>
 			</div>
 		</div>
 	);
