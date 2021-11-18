@@ -19,8 +19,7 @@ const SCards = props => {
 					</Link>
 					<Button
 						onClick={() => {
-							console.log("He clickado", props.name);
-							actions.addFavourite(props);
+							actions.addFavourite(props.element.name);
 						}}>
 						<i className="fab fa-jedi-order" />
 					</Button>
