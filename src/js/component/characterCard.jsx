@@ -16,11 +16,15 @@ const CharacterCard = props => {
 						variant="top"
 						src="https://elcomercio.pe/resizer/EjmehelmOk1BxT7upG_dfdw78eA=/1200x900/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/4AEQDOF6GVA3FHVR2J7MTIERUA.jpg"
 					/>
-					<div className="cardBottom">
+					<div className="cardBotton">
 						<Link to={`/characters/${props.element.uid}`}>
-							<Button variant="primary">Details</Button>
+							<Button className="btn" variant="danger">
+								Details
+							</Button>
 						</Link>
 						<Button
+							className="btn"
+							variant="danger"
 							onClick={() => {
 								actions.addFavourite(props.element.name);
 							}}>
