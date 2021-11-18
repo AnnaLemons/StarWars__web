@@ -17,7 +17,13 @@ const SCards = props => {
 					<Link to={`/speciesid/${props.element.uid}`}>
 						<Button variant="primary">Details</Button>
 					</Link>
-					<i className="fab fa-jedi-order" />
+					<Button
+						onClick={() => {
+							console.log("He clickado", props.name);
+							actions.addFavourite(props);
+						}}>
+						<i className="fab fa-jedi-order" />
+					</Button>
 				</Card.Body>
 			</Card>
 		</div>
