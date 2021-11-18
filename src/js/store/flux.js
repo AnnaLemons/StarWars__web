@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	//getStore: para leer el store
-	//setstore: para modificar/escribir el store
-	//getactions: para llamar a las acciones
+	//getStore: para leer el store (buscar)
+	//setstore: para modificar/escribir el store (modificar)
+	//getactions: para llamar a las acciones (buscar)
 	return {
 		store: {
 			baseUrl: "https://www.swapi.tech/api/",
