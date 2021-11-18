@@ -18,6 +18,11 @@ export const Navbar = () => {
 					<button className="btn btn-primary">Especies</button>
 				</Link>
 			</div>
+			<div className="ml-auto">
+				<Link to="/planets">
+					<button className="btn btn-primary">Planets</button>
+				</Link>
+			</div>
 			<div className="charactersLink">
 				<Link to="/characters">
 					<button className="btn btn-primary">Characters</button>
