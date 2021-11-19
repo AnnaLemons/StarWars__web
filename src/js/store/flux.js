@@ -45,7 +45,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getPlanetsDetails: uid => {
-				fetch(getStore().urlPlanetsDetails.concat(uid));
+				fetch(getStore().urlPlanetsDetails.concat(uid))
+					.then(answer => {
+						if (answer.ok) {
+							return answer.json();
+						}
+						throw new Error("FAIL DOWNLOADING PLANETSID");
+					})
+					.then(answerAsJson => {
+						setStore({ planetDetails: [answerAsJson.result.properties] });
+					})
+					.catch(error => {
+						console.log(error.message);
+					});
 			},
 
 			getSpecies: () => {
