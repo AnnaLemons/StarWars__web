@@ -17,14 +17,11 @@ const CardsPlanets = props => {
 					<Link to={"/planets/".concat(props.element.uid)}>
 						<Button variant="primary">Details</Button>
 					</Link>
-					<i className="fab fa-jedi-order" />
-
 					<Button
 						onClick={() => {
-							console.log("He clickado", props.name);
 							actions.addFavourite(props);
 						}}>
-						AÑADIR A FAVORITOS
+						<i className="fab fa-jedi-order" />
 					</Button>
 				</Card.Body>
 			</Card>

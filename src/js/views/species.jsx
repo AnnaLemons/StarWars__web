@@ -13,7 +13,7 @@ export const Species = () => {
 					store.species.map(specie => {
 						return (
 							<li key={specie.uid}>
-								<SCards element={specie} />
+								<SCards element={specie} name={specie.name} url={specie.url} />
 							</li>
 						);
 					})

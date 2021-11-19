@@ -1,10 +1,11 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	//getStore: para leer el store
-	//setstore: para modificar/escribir el store
-	//getactions: para llamar a las acciones
 	return {
 		store: {
 			baseUrl: "https://www.swapi.tech/api/",
+			urlStarships: "https://www.swapi.tech/api/starships",
+			urlStarshipsDetails: "https://www.swapi.tech/api/starships",
+			starships: [],
+			starshipsDetails: [],
 			urlPlanets: "https://www.swapi.tech/api/planets/",
 			urlPlanetsDetails: "https://www.swapi.tech/api/planets/",
 			planets: [],
@@ -28,24 +29,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 						if (response.ok) {
 							return response.json();
 						}
-						throw new Error("primer fetch que no funciona");
+						throw new Error("FAIL DOWNLOADING PLANETS");
 					})
 					.then(responseAsJSON => {
-						console.log(responseAsJSON);
 						setStore({ planets: [...getStore().planets, ...responseAsJSON.results] });
-						// esto se está llamando todo el rato (por la recursividad, que se llama así misma)
 						setStore({ urlPlanets: responseAsJSON.next });
-						// if (responseAsJSON.next) {
-						// 	getActions().getPlanets();
-						// }
+						if (responseAsJSON.next) {
+							getActions().getPlanets();
+						}
 					})
-
 					.catch(error => {
-						console.log("auxilio1", error.message);
+						console.log(error.message);
 					});
 			},
+			// ##ZZZZZZZZZZZZZZZZZNMMnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 			getPlanetsDetails: uid => {
 				fetch(getStore().urlPlanetsDetails.concat(uid))
+<<<<<<< HEAD
 					.then(answer => {
 						if (answer.ok) {
 							return answer.json();
@@ -54,6 +54,90 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(answerAsJson => {
 						setStore({ planetDetails: [answerAsJson.result.properties] });
+=======
+					.then(response => {
+						if (response.ok) {
+							return response.json();
+						}
+						throw new Error("FAIL DOWNLOADING PLANETS DETAILS");
+					})
+					.then(responseAsJSON => {
+						setStore({ planetDetails: [responseAsJSON.result.properties] });
+>>>>>>> 06d7d54201fbc4dc3fb4e0d9114df17ffd95bb33
+					})
+					.catch(error => {
+						console.log(error.message);
+					});
+			},
+			// ##ZZZZZZZZZZZZZZZZZNMMnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			getStarships: () => {
+				fetch(getStore().urlStarships)
+					.then(response => {
+						if (response.ok) {
+							return response.json();
+						}
+						throw new Error("FAIL DOWNLOADING STARSHIPS");
+					})
+					.then(responseAsJSON => {
+						setStore({ starships: [...getStore().starships, ...responseAsJSON.results] });
+						setStore({ urlStarships: responseAsJSON.next });
+						if (responseAsJSON.next) {
+							getActions().getStarships();
+						}
+					})
+					.catch(error => {
+						console.log(error.message);
+					});
+			},
+
+			getStarshipsDetails: id => {
+				fetch(getStore().urlStarshipsDetails.concat("/", id))
+					.then(response => {
+						if (response.ok) {
+							return response.json();
+						}
+						throw new Error("FAIL DOWNLOADING STARSHIPS DETAILS");
+					})
+					.then(responseAsJSON => {
+						setStore({
+							starshipsDetails: [responseAsJSON.result.properties]
+						});
+					})
+					.catch(error => {
+						console.log(error.message);
+					});
+			},
+
+			getCharacters: () => {
+				fetch(getStore().urlCharacters)
+					.then(response => {
+						if (response.ok) {
+							return response.json();
+						}
+						localStorage.setItem("characters", JSON.stringify(getStore().characters));
+						localStorage.setItem("characters_info", JSON.stringify(getStore().charactersDetails));
+
+						throw new Error("FAIL DOWNLOADING CHARACTERS");
+					})
+					.then(responseAsJSON => {
+						setStore({ characters: [...getStore().characters, ...responseAsJSON.results] });
+						setStore({ urlCharacters: responseAsJSON.next });
+					})
+					.catch(error => {
+						console.log(error.message);
+					});
+			},
+
+			getCharactersDetails: id => {
+				fetch(getStore().urlCharactersDetail.concat(id))
+					.then(answer => {
+						if (answer.ok) {
+							return answer.json();
+						}
+						throw new Error("FAIL DOWNLOADING CHARACTERS DETAILS");
+					})
+					.then(answerAsJSON => {
+						setStore({ charactersDetails: [answerAsJSON.result.properties] });
 					})
 					.catch(error => {
 						console.log(error.message);
@@ -86,7 +170,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						if (answer.ok) {
 							return answer.json();
 						}
-						throw new Error("FAIL DOWNLOADING SPECIESID");
+						throw new Error("FAIL DOWNLOADING SPECIES DETAILS");
 					})
 					.then(answerAsJson => {
 						setStore({ speciesDetails: [answerAsJson.result.properties] });
@@ -96,47 +180,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 
-			getCharacters: () => {
-				fetch(getStore().urlCharacters)
-					.then(response => {
-						if (response.ok) {
-							return response.json();
-						}
-						localStorage.setItem("characters", JSON.stringify(getStore().characters));
-						localStorage.setItem("characters_info", JSON.stringify(getStore().charactersDetails));
-
-						throw new Error("ERROR DOWNLOADING");
-					})
-					.then(responseAsJSON => {
-						setStore({ characters: [...getStore().characters, ...responseAsJSON.results] });
-						setStore({ urlCharacters: responseAsJSON.next });
-					})
-					.catch(error => {
-						console.log(error.message);
-					});
-			},
-
-			getCharactersDetails: id => {
-				fetch(getStore().urlCharactersDetail.concat(id))
-					.then(answer => {
-						if (answer.ok) {
-							return answer.json();
-						}
-						throw new Error("FATAL ERROR");
-					})
-					.then(answerAsJSON => {
-						setStore({ charactersDetails: [answerAsJSON.result.properties] });
-					})
-					.catch(error => {
-						console.log("auxilio2", error.message);
-					});
-			},
-
-			//va una coma después porque es un objeto
-			addFavourite: itemFavourite => {
-				console.log(getStore().favourites);
-				//en favoritos hacemos un spread para conseguir la info de favoritos
-				setStore({ favourites: [...getStore().favourites, itemFavourite] });
+			addFavourite: name => {
+				setStore({ favourites: [...getStore().favourites, name] });
 			}
 		}
 	};

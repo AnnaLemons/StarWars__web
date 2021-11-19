@@ -19,12 +19,10 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
+			state.actions.getStarships();
 			state.actions.getPlanets();
-			state.actions.getPlanetsDetails();
 			state.actions.getSpecies();
-			state.actions.getSpeciesDetails();
 			state.actions.getCharacters();
-			state.actions.getCharactersDetails();
 		}, []);
 
 		return (
@@ -33,6 +31,7 @@ const injectContext = PassedComponent => {
 			</Context.Provider>
 		);
 	};
+
 	return StoreWrapper;
 };
 
