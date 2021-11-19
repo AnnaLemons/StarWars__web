@@ -12,7 +12,7 @@ const Starships = () => {
 			if (store.starships.length != 0) {
 				setStarshipsList(
 					store.starships.map((data, index) => {
-						return <CardsStarships key={index.toString()} element={data} />;
+						return <CardsStarships key={index.toString()} name={data.name} url={data.url} element={data} />;
 					})
 				);
 			}
