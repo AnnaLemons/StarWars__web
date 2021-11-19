@@ -45,6 +45,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// ##ZZZZZZZZZZZZZZZZZNMMnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 			getPlanetsDetails: uid => {
 				fetch(getStore().urlPlanetsDetails.concat(uid))
+<<<<<<< HEAD
+					.then(answer => {
+						if (answer.ok) {
+							return answer.json();
+						}
+						throw new Error("FAIL DOWNLOADING PLANETSID");
+					})
+					.then(answerAsJson => {
+						setStore({ planetDetails: [answerAsJson.result.properties] });
+=======
 					.then(response => {
 						if (response.ok) {
 							return response.json();
@@ -53,6 +63,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(responseAsJSON => {
 						setStore({ planetDetails: [responseAsJSON.result.properties] });
+>>>>>>> 06d7d54201fbc4dc3fb4e0d9114df17ffd95bb33
 					})
 					.catch(error => {
 						console.log(error.message);
