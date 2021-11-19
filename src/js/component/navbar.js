@@ -17,18 +17,24 @@ export const Navbar = () => {
 			</Link>
 
 			<div className="ml-auto">
+				<Link to="/starships">
+					<button className="btn btn-primary">Starships</button>
+				</Link>
 				<Link to="/species">
-					<button className="btn">Especies</button>
+					<button className="btn btn-primary">Species</button>
+				</Link>
+				<Link to="/planets">
+					<button className="btn btn-primary">Planets</button>
+				</Link>
+        <Link to="/characters">
+					<button className="btn">Characters</button>
 				</Link>
 			</div>
 			<div className="ml-auto">
-				<Link to="/characters">
-					<button className="btn">Characters</button>
-				</Link>
 				<div>
 					<Dropdown>
 						<Dropdown.Toggle variant="success" id="dropdown-basic">
-							Corazoncito
+							Favourites
 						</Dropdown.Toggle>
 						<Dropdown.Menu>
 							{store.favourites.map((favorites, index) => (

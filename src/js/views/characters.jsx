@@ -11,7 +11,15 @@ export const Characters = () => {
 			if (store.characters.length != 0) {
 				setCharacterList(
 					store.characters.map((character, index) => {
-						return <CharacterCard key={index.toString()} uid={character.uid} element={character} />;
+						return (
+							<CharacterCard
+								key={index.toString()}
+								name={character.name}
+								url={character.url}
+								uid={character.uid}
+								element={character}
+							/>
+						);
 					})
 				);
 			}
