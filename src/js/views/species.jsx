@@ -23,5 +23,10 @@ export const Species = () => {
 		[store.species]
 	);
 
-	return <ul>{species}</ul>;
+	return (
+		<div className="speciesDetails">
+			{species}
+			<audio src="https://www.bensound.com/bensound-music/bensound-littleplanet.mp3" autoPlay />
+		</div>
+	);
 };
