@@ -1,12 +1,14 @@
 .btn{
     font-size: smaller;
-    color:yellow;
     text-decoration: none;
-  background-color:black;
+    background-color:transparent;
+    color:yellow
 }
+
 span{
     font-size: 50px;
 }
+
 .navbar {
     font-size: 50px;
     position: relative;
@@ -15,6 +17,9 @@ span{
     align-items: center;
     justify-content: space-around;
     padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #ffff0066;
+    border-bottom: 2px solid #ffff006b;
+}
+
+.dropdown{
+    background: #ff000045;
 }

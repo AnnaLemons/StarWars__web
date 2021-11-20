@@ -27,5 +27,10 @@ export const Characters = () => {
 		[store.characters]
 	);
 
-	return <div className="characterCards">{characterList}</div>;
+	return (
+		<div className="characterCards">
+			{characterList}
+			<audio src="https://www.bensound.com/bensound-music/bensound-deepblue.mp3" autoPlay />
+		</div>
+	);
 };

@@ -14,11 +14,15 @@ export const Planets = () => {
 						return <CardsPlanets key={planet.uid} name={planet.name} url={planet.url} element={planet} />;
 					})
 				);
-				console.log("variable PlanetList", planetList);
 			}
 		},
 		[store.planets]
 	);
 
-	return <ul>{planetList}</ul>;
+	return (
+		<div className="planetsDetails">
+			{planetList}
+			<audio src="https://www.bensound.com/bensound-music/bensound-evolution.mp3" autoPlay />
+		</div>
+	);
 };
