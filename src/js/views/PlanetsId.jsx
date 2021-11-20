@@ -10,7 +10,6 @@ export const PlanetsId = () => {
 
 	useEffect(() => {
 		actions.getPlanetsDetails(params.uid);
-		console.log("PARAMS", params.uid);
 	}, []);
 
 	useEffect(
@@ -39,7 +38,11 @@ export const PlanetsId = () => {
 		},
 		[store.planetDetails]
 	);
-	console.log("estas haciendo el mapeo?", detailPlanetList);
 
-	return <p>{detailPlanetList}</p>;
+	return (
+		<p>
+			{detailPlanetList}
+			<audio src="https://www.bensound.com/bensound-music/bensound-evolution.mp3" autoPlay />
+		</p>
+	);
 };

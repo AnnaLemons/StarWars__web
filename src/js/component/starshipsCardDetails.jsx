@@ -13,44 +13,44 @@ const StarshipsCardDetails = props => {
 					/>
 				</div>
 				<div>
-					<Card.Body>
-						<Card.Title>{props.element.name}</Card.Title>
+					<Card.Body className="cardTitleDetails">
+						<Card.Title className="cardTextDetails">{props.element.name}</Card.Title>
 						<Card.Text>
 							<ul>
 								<li>
-									model:
+									Model:
 									{props.element.model}
 								</li>
 								<li>
-									starship_class:
+									Starship class:
 									{props.element.starship_class}
 								</li>
 								<li>
-									manufacturer:
+									Manufacturer:
 									{props.element.manufacturer}
 								</li>
 								<li>
-									cost_in_credits:
+									Cost in credits:
 									{props.element.cost_in_credits}
 								</li>
 								<li>
-									lenght:
+									Lenght:
 									{props.element.lenght}
 								</li>
 								<li>
-									crew:
+									Crew:
 									{props.element.crew}
 								</li>
 								<li>
-									passengers:
+									Passengers:
 									{props.element.passenger}
 								</li>
 								<li>
-									max_atmosphering_speed:
+									Max atmosphering speed:
 									{props.element.max_atmosphering_speed}
 								</li>
 								<li>
-									hyperdrive_rating:
+									Hyperdrive rating:
 									{props.element.hyperdrive_rating}
 								</li>
 								<li>
@@ -58,23 +58,23 @@ const StarshipsCardDetails = props => {
 									{props.element.MGLT}
 								</li>
 								<li>
-									cargo_capacity:
+									Cargo capacity:
 									{props.element.cargo_capacity}
 								</li>
 								<li>
-									consumables:
+									Consumables:
 									{props.element.consumables}
 								</li>
 								<li>
-									pilots:
+									Pilots:
 									{props.element.pilots}
 								</li>
 								<li>
-									created:
+									Created:
 									{props.element.created}
 								</li>
 								<li>
-									edited:
+									Edited:
 									{props.element.edited}
 								</li>
 							</ul>

@@ -11,6 +11,11 @@
 		"build": "webpack --config webpack.prod.js",
 		"deploy": "node deploy-to-github.js"
 	},
+	"author": {
+		"name": "Alejandro Sanchez",
+		"url": "http://alesanchezr.com/"
+	},
+	
 	"license": "ISC",
 	"devDependencies": {
 		"@babel/cli": "^7.4.3",
@@ -66,7 +71,6 @@
 		"bootstrap": "^5.1.3",
 		"history": "^5.1.0",
 		"node": "^14.17.3",
-
 		"prop-types": "^15.6.1",
 		"react": "^17.0.0",
 		"react-bootstrap": "^2.0.2",

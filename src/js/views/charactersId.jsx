@@ -12,7 +12,6 @@ export const CharactersId = () => {
 
 	useEffect(() => {
 		actions.getCharactersDetails(params.uid);
-		console.log("ESTO ES UN PARAMS", params.uid);
 	}, []);
 
 	useEffect(
@@ -42,7 +41,10 @@ export const CharactersId = () => {
 		[store.charactersDetails]
 	);
 
-	console.log("CUANTAS VECES TE IMPRIMES", detailElements.props);
-
-	return <div>{detailElements}</div>;
+	return (
+		<div>
+			{detailElements}
+			<audio src="https://www.bensound.com/bensound-music/bensound-deepblue.mp3" autoPlay />
+		</div>
+	);
 };

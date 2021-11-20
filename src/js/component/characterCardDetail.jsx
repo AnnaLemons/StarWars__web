@@ -14,8 +14,8 @@ const CharacterCardDetail = props => {
 				</div>
 				<div>
 					<Card.Body>
-						<Card.Title>{props.element.name}</Card.Title>
-						<Card.Text>
+						<Card.Title className="cardTitleDetails">{props.element.name}</Card.Title>
+						<Card.Text className="cardTextDetails">
 							<ul>
 								<li>Height: {props.element.height}</li>
 								<li>Mass: {props.element.mass}</li>

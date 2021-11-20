@@ -28,43 +28,43 @@ export const StarshipsId = () => {
 								</div>
 								<div>
 									<Card.Body>
-										<Card.Title>{element.name}</Card.Title>
-										<Card.Text>
+										<Card.Title className="cardTitleDetails">{element.name}</Card.Title>
+										<Card.Text className="cardTextDetails">
 											<ul>
 												<li>
-													model:
+													Model:
 													{element.model}
 												</li>
 												<li>
-													starship_class:
+													Starship class:
 													{element.starship_class}
 												</li>
 												<li>
-													manufacturer:
+													Manufacturer:
 													{element.manufacturer}
 												</li>
 												<li>
-													cost_in_credits:
+													Cost in credits:
 													{element.cost_in_credits}
 												</li>
 												<li>
-													lenght:
+													Lenght:
 													{element.lenght}
 												</li>
 												<li>
-													crew:
+													Crew:
 													{element.crew}
 												</li>
 												<li>
-													passengers:
+													Passengers:
 													{element.passenger}
 												</li>
 												<li>
-													max_atmosphering_speed:
+													Max atmosphering speed:
 													{element.max_atmosphering_speed}
 												</li>
 												<li>
-													hyperdrive_rating:
+													Hyperdrive rating:
 													{element.hyperdrive_rating}
 												</li>
 												<li>
@@ -72,23 +72,23 @@ export const StarshipsId = () => {
 													{element.MGLT}
 												</li>
 												<li>
-													cargo_capacity:
+													Cargo capacity:
 													{element.cargo_capacity}
 												</li>
 												<li>
-													consumables:
+													Consumables:
 													{element.consumables}
 												</li>
 												<li>
-													pilots:
+													Pilots:
 													{element.pilots}
 												</li>
 												<li>
-													created:
+													Created:
 													{element.created}
 												</li>
 												<li>
-													edited:
+													Edited:
 													{element.edited}
 												</li>
 											</ul>
@@ -104,5 +104,10 @@ export const StarshipsId = () => {
 		[store.starshipsDetails]
 	);
 
-	return <div>{starshipsDetail}</div>;
+	return (
+		<div>
+			{starshipsDetail}
+			<audio src="https://www.bensound.com/bensound-music/bensound-enigmatic.mp3" autoPlay />
+		</div>
+	);
 };

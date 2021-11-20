@@ -1,17 +1,21 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import injectContext from "./store/appContext";
 
 import { Home } from "./views/home";
+
 import Starships from "./views/starships.jsx";
 import { StarshipsId } from "./views/starshipsId.jsx";
+
 import { Planets } from "./views/planets.jsx";
 import { PlanetsId } from "./views/PlanetsId.jsx";
+
 import { Characters } from "./views/characters.jsx";
 import { CharactersId } from "./views/charactersId.jsx";
+
 import { Species } from "./views/species.jsx";
 import SpeciesId from "./views/speciesid.jsx";
 
-import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 

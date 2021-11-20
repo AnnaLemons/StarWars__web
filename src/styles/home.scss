@@ -84,21 +84,6 @@ html {
         }
       }
     }
-    
-    button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 50px;
-      background: none;
-      border: 0;
-      font-weight: bold;
-      color: #FFEC01;
-      opacity: 1;
-      cursor: pointer;
-      animation: reset  66s linear;
-    }
   }
   
   @keyframes reel {
