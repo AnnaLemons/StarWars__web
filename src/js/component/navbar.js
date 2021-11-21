@@ -29,6 +29,7 @@ export const Navbar = () => {
 			<div>
 				<Dropdown>
 					<Dropdown.Toggle className="dropdown" variant="danger" id="dropdown-basic">
+						<i className="fab fa-jedi-order" />
 						Favourites
 					</Dropdown.Toggle>
 					<Dropdown.Menu>
